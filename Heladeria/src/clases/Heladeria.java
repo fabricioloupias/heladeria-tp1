@@ -14,12 +14,14 @@ public class Heladeria {
 	private int totalVasitos;
 	private int totalCucuruchos;
 	private ArrayList<Venta> ventas;
+	private ArrayList<Pagable> mediosDePago;
 
 	public Heladeria(String nombre) {
 		this.setNombre(nombre);
 		this.llenarTachos(TOTAL_GUSTOS, TOTAL_VARIEDAD);
 		this.llenarStock(STOCK_VASITOS, STOCK_CUCURUCHOS);
 		this.ventas = new ArrayList<Venta>();
+		this.llenarMediosDepago();
 		
 		Gusto gusto0 = new Normal(TipoGusto.VAINILLA, 0);
 		Gusto gusto1 = new Normal(TipoGusto.VAINILLA, 1);
@@ -139,6 +141,12 @@ public class Heladeria {
 		for (Venta venta : ventas) {
 			System.out.println(venta);
 		}
+	}
+	
+	private void llenarMediosDepago() {
+		this.mediosDePago = new ArrayList<Pagable>();
+		this.mediosDePago.add(new Efectivo());
+		this.mediosDePago.add(new MercadoPago());
 	}
 	
 
