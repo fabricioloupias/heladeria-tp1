@@ -83,13 +83,18 @@ public class Heladeria {
 		double precioPorGusto;
 		double precioTotal;
 		
-		if(gusto.descontarGramos(gramosElegidos) && hayStock) {
-			precio = ((gramosElegidos * PRECIO_POR_KILO) / 1000) + costoContenible;
-			precioPorGusto = gusto.calcularRecargo(precio);
-			precioTotal = pagable.calcularDescuento(precioPorGusto);
-			this.registrarVenta(gusto, contenible, precioTotal);
+		if(gusto.descontarGramos(gramosElegidos)) {
+			if(hayStock) {
+				precio = ((gramosElegidos * PRECIO_POR_KILO) / 1000) + costoContenible;
+				precioPorGusto = gusto.calcularRecargo(precio);
+				precioTotal = pagable.calcularDescuento(precioPorGusto);
+				this.registrarVenta(gusto, contenible, precioTotal);
+				this.descontarStock(contenible);
+				System.out.println("El monto a pagar es de: " + precioTotal);
+			}else {
+				System.out.println("No hay stock");
+			}
 			
-			System.out.println("El monto a pagar es de: " + precioTotal);
 		}else {
 			System.out.println("No se dispone de tal capacidad");
 		}
@@ -120,6 +125,14 @@ public class Heladeria {
 	private void llenarStock(int totalVasitos, int totalCucuruchos) {
 		this.totalVasitos = 10;
 		this.totalCucuruchos = 10;
+	}
+	
+	private void descontarStock(Contenible contenible) {
+		if(contenible instanceof Vasito) {
+			this.totalVasitos--;
+		}else {
+			this.totalCucuruchos--;
+		}
 	}
 
 	public void mostrarVentas() {

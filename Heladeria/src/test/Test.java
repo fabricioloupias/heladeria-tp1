@@ -18,12 +18,20 @@ public class Test {
 		Contenible vasito = (Contenible) new Vasito();
 		Contenible cucurucho = (Contenible) new Cucurucho();
 		
-		/*
 		heladeria.venderHelado(TipoGusto.CHOCOLATE, 0, vasito, efectivo);
 		heladeria.venderHelado(TipoGusto.CHOCOLATE, 1, cucurucho, mercadoPago);
-		*/
 		heladeria.venderHelado(TipoGusto.VAINILLA, 2, cucurucho, mercadoPago);
 		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, mercadoPago);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
+		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
 		heladeria.venderHelado(TipoGusto.VAINILLA, 2, vasito, efectivo);
 		heladeria.mostrarVentas();
 	}
